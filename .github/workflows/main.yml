@@ -1,13 +1,20 @@
-name: A workflow for my Hello World file
-on: push
+name: Manually triggered workflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
+
 jobs:
-  build:
-    name: Hello world action
+  say_hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
-        with:
-          MY_FIRST: 'Midiwo'
-          MY_LAST: 'Jakoyo'
-          MY_AGE: 38
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
