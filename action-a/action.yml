@@ -9,12 +9,12 @@ inputs:
     default: 'World'
 
   MY_LAST:
-    description: 'Who to greet'
+    description: 'Who to gree'
     required: true
     default: 'World'
 
   MY_AGE:
-    description: 'Who to greet'
+    description: 'Who'
     required: true
     default: 'World'
 
